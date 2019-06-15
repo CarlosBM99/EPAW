@@ -58,6 +58,9 @@
 				<button type="button" class="btn btn-success" id="save_button"
 					style="margin-right: 20px">Save</button>
 			</div>
+			
+			<div id="followed_users">
+			</div>
 	</div>
 	<div class="col">
 		<h1>Posts</h1>
@@ -89,6 +92,7 @@
 </div>
 
 <script>
+	$("#followed_users").load('FollowedUsersController');
 	$("#cancel_button").css("display", "none")
 	$("#save_button").css("display", "none")
 	$("#cancel_button").click(function(event) {
