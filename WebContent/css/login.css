@@ -1,0 +1,45 @@
+@charset "ISO-8859-1";
+
+body {
+ font-family: Arial, Helvetica, sans-serif;
+ font-size: 13px;
+ 
+ background-color: #E2DDCC;
+}
+
+#login
+{
+	margin-top: 30px;
+	margin-bottom: 30px;
+	margin-left: 33%;
+	color: #fff;
+	font-size: 20px;
+	font-weight: bold;
+}
+
+#label
+{
+	margin-left: 15%;
+	margin-right: 10px;
+	margin-top: 10px;
+	font-weight: bold;
+}
+
+.log_input
+{
+	float: right;
+	margin-right: 15%;
+}
+
+#errors
+{
+	margin-top: 10px;
+	margin-left: 15%;
+}
+
+#button
+{
+	margin-top: 25px;
+	margin-bottom: 10px;
+	margin-left: 35%;
+}

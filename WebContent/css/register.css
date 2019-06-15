@@ -1,0 +1,38 @@
+@charset "ISO-8859-1";
+
+body
+{
+	font-family: Arial, Helvetica, sans-serif;
+	font-size: 13px;
+	background-color: #E2DDCC;
+}
+
+#register
+{
+	margin-top: 30px;
+	margin-bottom: 30px;
+	margin-left: 33%;
+	color: #fff;
+	font-size: 20px;
+	font-weight: bold;
+}
+
+#label
+{
+	margin-right: 10px;
+	margin: 10px;
+	margin-bottom: 20px;
+	font-weight: bold;
+}
+
+.reg_input
+{
+	float: right;
+}
+
+#button
+{
+	margin-top: 25px;
+	margin-bottom: 10px;
+	margin-left: 35%;
+}
