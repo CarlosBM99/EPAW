@@ -11,6 +11,7 @@ $(document).ready(function() {
 
 <li class="nav-item active"><a class="nav-link menu" id="MyProfileController" href="#">My profile</a></li>
 <li class="nav-item active"><a class="nav-link menu" id="PersonalizedTimelineController" href="#">Personalized timeline</a></li>
+<li class="nav-item active"><a class="nav-link menu" id="WhoToFollowController" href="#">Who to follow</a></li>
 <li class="nav-item active"><a class="nav-link menu" id="LogoutController" href="#">Logout</a></li>
 
 

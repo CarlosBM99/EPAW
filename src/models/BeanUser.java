@@ -23,6 +23,16 @@ public class BeanUser implements Serializable  {
 	
 	private int[] error = {0,0,0,0,0,0,0}; 
 	
+	public BeanUser(String nickname, String firstname, String lastname){
+		this.nickname = nickname;
+		this.firstname = firstname;
+		this.lastname = lastname;
+	}
+	
+	public BeanUser(){
+		
+	};
+	
 	/* Getters */
 	public String getFirstname() {
 		return firstname;
