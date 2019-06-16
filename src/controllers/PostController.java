@@ -65,12 +65,12 @@ public class PostController extends HttpServlet {
 	    		if(result == 1){
 	    			post.setText("");
 					request.setAttribute("post", post);
-				    RequestDispatcher dispatcher = request.getRequestDispatcher("/HomeController");
+				    RequestDispatcher dispatcher = request.getRequestDispatcher("HomeController?anonymous='no'");
 					dispatcher.forward(request, response);
 	    		} else {
 	    			post.setText("");
 					request.setAttribute("post", post);
-				    RequestDispatcher dispatcher = request.getRequestDispatcher("/HomeController");
+				    RequestDispatcher dispatcher = request.getRequestDispatcher("HomeController?anonymous='no'");
 					dispatcher.forward(request, response);
 	    		}
 	    		

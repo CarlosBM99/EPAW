@@ -6,7 +6,7 @@
 
 <div class="row">
 	<div class="col">
-		<h1>My profile</h1>
+		<h1>Profile</h1>
 		<form id="profile_form">
 			<div class="form-group row">
 				<label for="staticEmail" class="col-sm-4 col-form-label">First

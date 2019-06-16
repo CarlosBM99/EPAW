@@ -14,7 +14,8 @@
 
 <div class="row">
 	<div class="col">
-		<h1>My profile</h1>
+		<button type="button" id="delete_account" class="btn btn-danger">Delete Account</button>
+		<h1>Profile</h1>
 		<form id="profile_form">
 			<div class="form-group row">
 				<label for="staticEmail" class="col-sm-4 col-form-label">First
@@ -93,6 +94,9 @@
 </div>
 
 <script>
+	$("#delete_account").click(function() {
+		$('#content').load('DeleteAccountController', {nickname: "<%=user.getNickname()%>"})
+	})
 	$("#followed_users").load('FollowedUsersController',{nickname: "<%=user.getNickname()%>"});
 	$("#cancel_button").css("display", "none")
 	$("#save_button").css("display", "none")

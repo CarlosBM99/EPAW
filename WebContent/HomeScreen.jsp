@@ -79,11 +79,12 @@ $(document).ready(function() {
 		} else {
 			isAdmin = "<%=user.getIsAdmin()%>"
 		}
-		if(isAdmin === "1"){
+		 if (nickname === nick2) {
+				$('#content').load('MyProfileController');
+			}
+		 else if(isAdmin === "1"){
 			$('#content').load('ShowUserAdminProfileController',{nickname: nickname });
-		} else if (nickname === nick2) {
-			$('#content').load('MyProfileController');
-		} else {
+		}else {
 			$('#content').load('ShowProfileController',{nickname: nickname });
 		}
 	}
