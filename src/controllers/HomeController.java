@@ -51,7 +51,8 @@ public class HomeController extends HttpServlet {
 		HttpSession session = request.getSession();
 	    try
 	    {
-	    	if((session.getAttribute("nickname") != "" && session.getAttribute("nickname") != null) || session.getAttribute("anonymous") == "yes"){
+	    	session.setAttribute("anonymous","no");
+	    	if(session.getAttribute("user") != null || request.getParameter("anonymous").equals("yes")){
 		    	int count = -1;
 		    	ResultSet result1 = db.executeSQL("SELECT COUNT(*) FROM posts");
 		    	if(result1.next()){
@@ -71,10 +72,13 @@ public class HomeController extends HttpServlet {
 	    		}
 	    		request.setAttribute("posts", posts);
 	    		request.setAttribute("posts_size", posts.length);
+	    		if(request.getParameter("anonymous").equals("yes")){
+	    			session.setAttribute("anonymous","yes");
+	    		}
 	    		RequestDispatcher dispatcher = request.getRequestDispatcher("HomeScreen.jsp");
-	    		session.setAttribute("anonymous",null);
 	    		dispatcher.forward(request, response);
 	    	} else {
+	    		session.setAttribute("anonymous",null);
 	    		RequestDispatcher dispatcher = request.getRequestDispatcher("ViewStart.jsp");
 	    		dispatcher.forward(request, response);
 	    	}

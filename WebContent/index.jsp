@@ -44,14 +44,12 @@
 			<span class="text-muted">© 2019 ESAW. All rights reserved. Powered by ORC Team.</span>
 		</div>
 	</footer>
-	
 	<script>
-		$('#content').load('HomeController');
+		<%HttpSession session = request.getSession();%>
+		$('#content').load('HomeController', {anonymous: "no"});
 		$('#navigation').load('MenuController');
 		$("#logo").click(function(event) {
-			$('#content').load('ContentController', {
-				content : "HomeController"
-			});
+			$('#content').load('HomeController', {anonymous: "<%=session.getAttribute("anonymous")%>"});
 		});
 		</script>
 	<script

@@ -5,7 +5,7 @@ $(document).ready(function() {
 	    $.ajaxSetup({ cache: false }); // Avoids Internet Explorer caching!
 	    $('#navigation').load('MenuController');
 	    setTimeout(function(){
-		    $('#content').load('HomeController');
+		    $('#content').load('HomeController', {anonymous: "no"});
 	    },2000);
 });
 

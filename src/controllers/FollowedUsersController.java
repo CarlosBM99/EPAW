@@ -51,14 +51,15 @@ public class FollowedUsersController extends HttpServlet {
 	{
 		System.out.println("FollowedUsersController.");
 		HttpSession session = request.getSession();
+		String nickname = request.getParameter("nickname");
 	    try
 	    {
 	    	int count = 0;
-	    	ResultSet result = db.executeSQL("SELECT COUNT(*) FROM follows where nickname='"+ session.getAttribute("nickname") +"';");
+	    	ResultSet result = db.executeSQL("SELECT COUNT(*) FROM follows where nickname='"+ nickname +"';");
 	    	if(result.next()){
 	    		count += result.getInt(1);
     		}
-	    	result = db.executeSQL("SELECT * FROM follows where nickname='"+ session.getAttribute("nickname") +"';");
+	    	result = db.executeSQL("SELECT * FROM follows where nickname='"+ nickname +"';");
 	    	int i = 0;
 	    	BeanUser[] users = new BeanUser[count];
 	    	while(result.next()){

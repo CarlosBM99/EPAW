@@ -9,12 +9,11 @@
 		$('#navigation').load('MenuController');
 	    $(".active").click(function(event) {
 	    	if($(this).attr('id') == "HomeController"){
-	    		<%
-	    		HttpSession session = request.getSession();
-	    		session.setAttribute("anonymous", "yes");
-	    		%>
+	    		$('#content').load('HomeController',{anonymous: "yes"});
+	    	} else {
+	    		$('#content').load('ContentController',{content: $(this).attr('id')});
 	    	}
-	        $('#content').load('ContentController',{content: $(this).attr('id')});
+	        
 	        });
 	});
 	</script>

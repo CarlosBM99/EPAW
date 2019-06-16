@@ -70,6 +70,7 @@ public class LoginController extends HttpServlet {
 	    			user.setNickname(result.getString("nickname"));
 	    			user.setLastname(result.getString("last_name"));
 	    			user.setMail(result.getString("email"));
+	    			user.checkIsAdmin();
 	    			session.setAttribute("nickname", result.getString("nickname"));
 			    	session.setAttribute("user", user);
 			    	request.setAttribute("user", user);

@@ -68,7 +68,8 @@
 <script>
 <%HttpSession session = request.getSession();%>
 var isSession = "<%=((session.getAttribute("nickname") != "" && session.getAttribute("nickname") != null) || session.getAttribute("anonymous") == "yes")%>";
-if(isSession === "true"){
+var isAnonymous = "<%=session.getAttribute("anonymous")%>"
+if(isSession === "true" && !isAnonymous){
 	$('#follow_container').load('CheckFollowUserController', {nickname: '<%=session.getAttribute("nickname")%>', user_nickname: '<%=request.getAttribute("nickname")%>'});
 }
 //$('#follow_container').load('CheckFollowUserController', {nickname: session});

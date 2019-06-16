@@ -1,20 +1,26 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
-	pageEncoding="UTF-8" import="models.BeanPost" session="false"%>
+	pageEncoding="UTF-8" import="models.BeanPost" import="models.BeanUser" session="false"%>
 
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 <head>
 
 <link href="css/structure.css" rel="stylesheet" />
 <%
+	BeanUser user = new BeanUser();
 	BeanPost post = new BeanPost();
 	HttpSession session = request.getSession();
+	int isUser = 0;
+	if(session.getAttribute("anonymous").equals("yes")){
+		isUser = 0;
+	} else {
+		user = (BeanUser)session.getAttribute("user");
+		isUser = 1;
+	}
 	if(session != null){
 		//System.out.println("session");
 		if(session.getAttribute("nickname") != "" && session.getAttribute("nickname") != null){
 			post.setNickname(session.getAttribute("nickname").toString());
 		}
-	} else {
-		//System.out.println("no-session");
 	}
 		
 %>
@@ -66,7 +72,16 @@ $(document).ready(function() {
 	function showProfile(id){
 		var nickname = document.querySelector("#nickname_" + id.replace("profile_button_post_", "")).textContent
 		var nick2 = "<%=session.getAttribute("nickname")%>"
-		if(nickname === nick2){
+		var isUser = "<%=isUser%>"
+		var isAdmin = "0";
+		if(isUser === "0"){
+			isAdmin === "0"
+		} else {
+			isAdmin = "<%=user.getIsAdmin()%>"
+		}
+		if(isAdmin === "1"){
+			$('#content').load('ShowUserAdminProfileController',{nickname: nickname });
+		} else if (nickname === nick2) {
 			$('#content').load('MyProfileController');
 		} else {
 			$('#content').load('ShowProfileController',{nickname: nickname });

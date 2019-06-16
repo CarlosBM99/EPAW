@@ -32,7 +32,7 @@ public class MenuController extends HttpServlet {
 		
 		HttpSession session = request.getSession();
 		
-		if (session.getAttribute("user")!=null || session.getAttribute("nickname")!=null) {
+		if (session.getAttribute("user")!=null) {
 			System.out.println("MenuController, loading: ViewMenuLogged ");
 			RequestDispatcher dispatcher = request.getRequestDispatcher("ViewMenuLogged.jsp");
 			dispatcher.forward(request, response);

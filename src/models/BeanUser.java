@@ -1,11 +1,14 @@
 package models;
 
 import java.io.Serializable;
+import java.sql.ResultSet;
+
+import controllers.DAO;
 
 public class BeanUser implements Serializable  {
 
 	private static final long serialVersionUID = 1L;
-
+	private DAO dao;
 	
 	private String firstname = "";
 	private String lastname = "";
@@ -95,6 +98,22 @@ public class BeanUser implements Serializable  {
 		this.error[pos] = value;
 	}
 
+	public int checkIsAdmin() {
+		try {
+			dao = new DAO();
+			ResultSet result = dao.executeSQL("SELECT * FROM admins where nickname='"+nickname+"';");
+			if(result.next()){
+				setIsAdmin(1);
+				return 1;
+			} else {
+				setIsAdmin(0);
+				return 0;
+			}
+		} catch (Exception e1) {
+			e1.printStackTrace();
+		}
+		return isAdmin;
+	}
 	/* Logic Functions */
 	public boolean checkError() {
 		int[] array = this.getError();

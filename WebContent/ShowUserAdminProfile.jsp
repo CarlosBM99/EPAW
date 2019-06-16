@@ -93,13 +93,12 @@
 </div>
 
 <script>
-	$("#followed_users").load('FollowedUsersController',
-			{nickname: "<%=user.getNickname()%>"});
+	$("#followed_users").load('FollowedUsersController',{nickname: "<%=user.getNickname()%>"});
 	$("#cancel_button").css("display", "none")
 	$("#save_button").css("display", "none")
 	$("#cancel_button").click(function(event) {
 		$('#content').load('ContentController', {
-			content : "MyProfileController"
+			content : "ShowUserAdminProfileController"
 		});
 	});
 	$("#save_button").click(
@@ -107,10 +106,14 @@
 				$.ajaxSetup({
 					cache : false
 				}); //Avoids Internet Explorer
-				$('#content').load('SaveUserInfoController',
-						$("#profile_form").serialize());
+				var a = document.querySelector("#firstname")
+				var b = document.querySelector("#lastname")
+				$('#content').load('SaveUserAdminInfoController', {nickname: "<%=user.getNickname()%>", 
+					first_name: a.value, last_name: b.value});
+				
 				event.preventDefault();
-			});
+			}
+			);
 	$("#edit_button").click(function(event) {
 		$('input').each(function() {
 			if (this.id == "firstname" || this.id == "lastname") {
@@ -135,7 +138,7 @@
 	}
 	function closeButtons(id) {
 		$('#content').load('ContentController', {
-			content : "MyProfileController"
+			content : "ShowUserAdminProfileController"
 		});
 	}
 	function saveInfo(id){
@@ -144,12 +147,12 @@
 			$.ajaxSetup({
 				cache : false
 			}); //Avoids Internet Explorer
-			$('#content').load('SaveUserPostController',
+			$('#content').load('SaveUserAdminPostController',
 					{id: _id, text: text } );
 	}
 	function deletePost(id){
 		var _id = id.replace("delete_button_post_", "")
-		$('#content').load('DeleteUserPostController', {post_id: _id});
+		$('#content').load('DeleteUserAdminPostController', {post_id: _id});
 	}
 	for(var i=size-1; i>=1; i=i-2){
 		var id = my_posts.childNodes[i].id
