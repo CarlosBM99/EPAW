@@ -101,9 +101,7 @@
 	$("#cancel_button").css("display", "none")
 	$("#save_button").css("display", "none")
 	$("#cancel_button").click(function(event) {
-		$('#content').load('ContentController', {
-			content : "ShowUserAdminProfileController"
-		});
+			$('#content').load('ShowUserAdminProfileController',{nickname: "<%=user.getNickname()%>"});
 	});
 	$("#save_button").click(
 			function(event) {
@@ -141,9 +139,7 @@
 		$("#text_" +id.replace("edit_button_", "")).prop('class', "form-control");
 	}
 	function closeButtons(id) {
-		$('#content').load('ContentController', {
-			content : "ShowUserAdminProfileController"
-		});
+		$('#content').load('ShowUserAdminProfileController',{nickname: "<%=user.getNickname()%>"});
 	}
 	function saveInfo(id){
 		var _id = id.replace("save_button_post_", "")
