@@ -63,7 +63,7 @@ public class ShowProfileController extends HttpServlet {
 		    	int i = 0;
 	    		while(result2.next())
 	    		{
-	    			posts[i] = new BeanPost(result2.getInt("id"),result2.getString("nickname"),result2.getString("text"),result2.getInt("likes"));
+	    			posts[i] = new BeanPost(result2.getInt("id"),result2.getString("nickname"),result2.getString("text"));
 	    			i++;
 	    		}
 	    		request.setAttribute("posts", posts);

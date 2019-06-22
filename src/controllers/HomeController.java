@@ -64,7 +64,7 @@ public class HomeController extends HttpServlet {
 		    	int i = 0;
 	    		while(result.next())
 	    		{
-	    			posts[i] = new BeanPost(result.getInt("id"),result.getString("nickname"),result.getString("text"),result.getInt("likes"));
+	    			posts[i] = new BeanPost(result.getInt("id"),result.getString("nickname"),result.getString("text"));
 	    			//System.out.println(result.getString("text"));
 	    			i++;
 	    			//session.setAttribute("posts", result);

@@ -67,7 +67,7 @@ public class PersonalizedTimelineController extends HttpServlet {
 	    	while(result.next() && i<count){
 	    		ResultSet result2 = db2.executeSQL("SELECT * FROM posts where nickname='"+ result.getString("user_nickname") +"';");
 	    		while(result2.next()){
-	    			posts[i] = new BeanPost(result2.getInt("id"),result2.getString("nickname"),result2.getString("text"),result2.getInt("likes"));
+	    			posts[i] = new BeanPost(result2.getInt("id"),result2.getString("nickname"),result2.getString("text"));
 	    			i++;
 	    		}
 	    	}

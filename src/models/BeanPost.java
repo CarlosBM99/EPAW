@@ -9,14 +9,12 @@ public class BeanPost implements Serializable  {
 	private int id = 0;
 	private String text = "";
 	private String nickname = "";
-	private int likes = 0;
 	int error = 0;
 	
-	public BeanPost(int id, String nickname, String text, int likes){
+	public BeanPost(int id, String nickname, String text){
 		this.id = id;
 		this.nickname = nickname;
 		this.text = text;
-		this.likes = likes;
 	}
 	
 	public BeanPost(){
@@ -30,10 +28,6 @@ public class BeanPost implements Serializable  {
 	public String getNickname() {
 		return nickname;
 	}
-
-	public int getPassword() {
-		return likes;
-	}
 	
 	public int getId() {
 		return id;
@@ -46,10 +40,6 @@ public class BeanPost implements Serializable  {
 
 	public void setNickname(String nickname) {
 		this.nickname = nickname;
-	}
-	
-	public void setLikes(int likes) {
-		this.likes = likes;
 	}
 	
 	public void setId(int id) {
