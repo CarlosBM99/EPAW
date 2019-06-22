@@ -62,7 +62,7 @@ public class HomeController extends HttpServlet {
 		    	ResultSet result = db.executeSQL("SELECT * FROM posts");
 		    	BeanPost[] posts = new BeanPost[count];
 		    	int i = 0;
-	    		while(result.next())
+	    		while(result.next() && count > 0)
 	    		{
 	    			posts[i] = new BeanPost(result.getInt("id"),result.getString("nickname"),result.getString("text"));
 	    			//System.out.println(result.getString("text"));

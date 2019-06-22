@@ -53,12 +53,11 @@
 				String posts_size = request.getParameter("posts_size");
 				BeanPost[] posts = (BeanPost[]) request.getAttribute("posts");
 				int size = (int) request.getAttribute("posts_size");
-				for (int i = size - 1; i >= 0; i--) {
-					out.println("<div class='card' style='margin-top: 10px' id='post_" + posts[i].getId() + "'>" + "<div class='card-header'>"
-							+ posts[i].getNickname() + "</div>" + "<div class='card-body'>" + "<input class='form-control-plaintext' type='text' readonly id='text_post_" + 
-					posts[i].getId() +"' value='"+ posts[i].getText() + "' style='text-align: center'/>"+
-							"</div>" + "</div>");
-				}
+				for (int i = size - 1; i >= 0; i--) {%>
+					<div class='card' style='margin-top: 10px' id='post_<%=posts[i].getId() %>'><div class='card-header'>
+							<%=posts[i].getNickname() %></div><div class='card-body'><input class='form-control-plaintext' type='text' readonly id='text_post_<%=posts[i].getId() %>' value='<%=posts[i].getText() %>' style='text-align: center'/>
+							</div></div>
+				<%}
 			%>
 		</div>
 

@@ -59,7 +59,7 @@ public class PostController extends HttpServlet {
 			if (post.isComplete())
 	    	{
 	    		System.out.println("Post is complete");
-	    		int result = db.executeUpdate("INSERT INTO posts (nickname,text,likes) VALUES('"+ post.getNickname() +"','"+ post.getText() +"','"+ 0 +"');");
+	    		int result = db.executeUpdate("INSERT INTO posts (nickname,text) VALUES('"+ post.getNickname() +"','"+ post.getText() +"');");
 	    		//ResultSet result = db.executeSQL("SELECT * FROM users WHERE nickname LIKE '" + login.getNickname() + "' AND hashedPassword LIKE SHA2('" + login.getPassword() + "',256);");
 	    		System.out.println("result: " + result);
 	    		if(result == 1){

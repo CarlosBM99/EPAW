@@ -71,22 +71,20 @@
 				String posts_size = request.getParameter("posts_size");
 				BeanPost[] posts = (BeanPost[]) request.getAttribute("posts");
 				int size = (int) request.getAttribute("posts_size");
-				for (int i = size - 1; i >= 0; i--) {
-					out.println("<div class='card' style='margin-top: 10px' id='post_" + posts[i].getId() + "'>" + "<div class='card-header'>"
-							+ posts[i].getNickname() + "</div>" + "<div class='card-body'>" + "<input class='form-control-plaintext' type='text' readonly id='text_post_" + 
-					posts[i].getId() +"' value='"+ posts[i].getText() + "' style='text-align: center'/>"+
-							"<div class='row' style='justify-content: center'>"+
-							"<button type='button' class='btn btn-primary' id='edit_button_post_" + posts[i].getId() + "'"+
-							">Edit</button>"+
-							"<button type='button' class='btn btn-warning' id='delete_button_post_"  + posts[i].getId() + "'" + "style='margin-left: 20px'>Delete Spoiler</button>"+
-						"<button type='button' class='btn btn-danger' id='cancel_button_post_" + posts[i].getId() + "'"+
-							"style='margin-right: 20px; display: none'>Cancel</button>"+
-						"<button type='button' class='btn btn-success' id='save_button_post_" + posts[i].getId() + "'"+
-							"style='margin-right: 20px; display: none'>Save</button>"+
-					"</div>"+
-							"</div>" + "</div>");
-				}
-			%>
+				for (int i = size - 1; i >= 0; i--) {%>
+					<div class='card' style='margin-top: 10px' id='post_<%=posts[i].getId() %>'><div class='card-header'>
+							<%=posts[i].getNickname() %></div><div class='card-body'>
+							<input class='form-control-plaintext' type='text' readonly id='text_post_<%=posts[i].getId() %>' value='<%=posts[i].getText() %>' style='text-align: center'/>
+							<div class='row' style='justify-content: center'>
+							<button type='button' class='btn btn-primary' id='edit_button_post_<%=posts[i].getId() %>'>Edit</button>
+							<button type='button' class='btn btn-warning' id='delete_button_post_<%=posts[i].getId() %>' style='margin-left: 20px'>Delete Spoiler</button>
+						<button type='button' class='btn btn-danger' id='cancel_button_post_<%=posts[i].getId() %>'
+							style='margin-right: 20px; display: none'>Cancel</button>
+						<button type='button' class='btn btn-success' id='save_button_post_<%=posts[i].getId() %>'
+							style='margin-right: 20px; display: none'>Save</button>
+					</div>
+							</div></div>
+				<%}%>
 		</div>
 
 	</div>
