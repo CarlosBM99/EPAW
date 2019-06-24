@@ -129,7 +129,6 @@
 	var my_posts = document.querySelector("#my_posts");
 	var size = my_posts.childNodes.length -1;
 	function showButtons(id) {
-		console.log("id" + id)
 		document.querySelector("#save"+ id.replace("edit", "")).style.display = "block";
 		document.querySelector("#cancel" + id.replace("edit", "")).style.display = "block";
 		document.querySelector("#delete" + id.replace("edit", "")).style.display = "none";
